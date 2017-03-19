@@ -23,6 +23,8 @@ In order to run this code, you need an integrated development environment like V
 
 TODO: add an image to insert cmd arguments using visual studio
 
+TODO: how to produce a csv file from excel
+
 ## API Reference
 
 None.
