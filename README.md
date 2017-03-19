@@ -21,6 +21,8 @@ This project exists because I need something to replace my current method of kee
 
 In order to run this code, you need an integrated development environment like Visual Studio.  This program is created using Visual Studio 2015 and started with an empty Win32 Console Application.
 
+TODO: add an image to insert cmd arguments using visual studio
+
 ## API Reference
 
 None.
