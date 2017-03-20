@@ -6,7 +6,7 @@ This project grabs data from a text file filled with data about courses I am tak
 
 ## Code Example
 
-TODO: create a menu option to insert, delete old data and then update binary file or txt file ??
+TODO: create a menu option to insert, delete old data and then update binary file or txt file ?? Note to self: may not need to use pointers for this part.
 
 TODO: Using C to create a list of anything requires basic knowledge about pointers and structures.  Unlike most programming languages, lists in C (linked list, stacks and quences) have to be created using pointers and structures.  So for example, this application creates a structure of courses to hold the data and in the structure I have inserted a pointer that points to the previous and next list node.  These pointers are what allows me to traverse through the list and displays the list in sorted order.  Lastly, the reason why I am creating a linked list instead of a standard array is because I don’t know how many list nodes I will need (how many courses I will take). By creating a linked list, the program can dynamically change the list size, which means in the future if I take 1 or 100 more courses, the program will be able to handle the data. 
 
