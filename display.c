@@ -29,7 +29,7 @@
 #define MAX_FIRST_NAME_LENGTH			40
 #define MAX_LAST_NAME_LENGTH			40
 #define MAX_COURSE_OUTCOME_LENGTH		100
-#define MAX_COURSE_EXTRA_INFO_LENGTH	100
+#define MAX_COURSE_EXTRA_INFO_LENGTH		100
 
 #define DIVIDER "---------------------------------------------------------------------------------------------------------------------------------------------------------------------------"
 
@@ -41,14 +41,14 @@ void newRecord(FILE *fpInputFile);
 
 typedef struct {
 
-	char schoolName[MAX_SCHOOL_NAME_LENTGH + 1];
-	int	 year;
-	char courseName[MAX_COURSE_NAME_LENGTH + 1];
-	char courseID[MAX_COURSE_ID_LENGTH + 1];
-	char teacherFirstName[MAX_FIRST_NAME_LENGTH + 1];
-	char teacherLastName[MAX_LAST_NAME_LENGTH + 1];
-	char courseOutcome[MAX_COURSE_OUTCOME_LENGTH + 1];
-	char extraInfo[MAX_COURSE_EXTRA_INFO_LENGTH + 1];
+	char schoolName		[MAX_SCHOOL_NAME_LENTGH + 1];
+	int  year;
+	char courseName		[MAX_COURSE_NAME_LENGTH + 1];
+	char courseID		[MAX_COURSE_ID_LENGTH + 1];
+	char teacherFirstName	[MAX_FIRST_NAME_LENGTH + 1];
+	char teacherLastName	[MAX_LAST_NAME_LENGTH + 1];
+	char courseOutcome	[MAX_COURSE_OUTCOME_LENGTH + 1];
+	char extraInfo		[MAX_COURSE_EXTRA_INFO_LENGTH + 1];
 } Course;
 
 
@@ -90,19 +90,15 @@ int main(int argc, char *argv[]) {		//argc number of arguments passed, argv arra
 			case 1:
 				printToConsoleAndTextFile(fpInputFile);
 				break;
-
 			case 2:
 				//updateRecord(fpInputFile); TODO not done
 				break;
-
 			case 3:
 				newRecord(fpInputFile);
 				break;
-
 			case 4:
 				//deleteRecord(fpInputFile); TODO not done
 				break;
-
 			default:
 				printf("Incorrect choice\n");
 				break;
