@@ -4,6 +4,9 @@
 
 This project grabs data from a text file filled with data about courses I am taking, stores the data in a list and displays a menu with option for sorting the data.
 
+The program outputs this to the console like this, minus the display menu:
+![alt tag](https://cloud.githubusercontent.com/assets/6993716/24091648/931e9134-0d06-11e7-9e4b-bbd3eff7e944.PNG)
+
 ## Code Example
 
 TODO: create a menu option to insert, delete old data and then update binary file or txt file ?? Note to self: may not need to use pointers for this part.
