@@ -18,33 +18,33 @@ This program parses each line from the file and then separate data by tokenizing
 
 ## Motivation
 
-
 This project exists because I need something to replace my current method of keeping track of what courses I am taking.  Currently, after I register for a course, I will get the course information and insert the data into an excel spreadsheet.  Since I am in multiple schools, I need a place to track all my courses and to help me get organize.   Since I am learning C programming right now, I have written the program in C.  Using C to create a list versus other programming languages is a bit more challenging but worth the challenge.
 
 ## Installation
 
 In order to run this code, you need an integrated development environment like Visual Studio.  This program is created using Visual Studio 2015 and started with an empty Win32 Console Application.
 
-TODO: add an image to insert cmd arguments using visual studio
-Instead of typing in the data input file in all the time, we can do insert the data input name like this:
+This program uses cmd line arguments to get file input name.  In visual studio, you would input the file name like this:
+
+![alt tag] ----
 
 Currently, I have all my courses in a spreadsheet saved as XLSX file.  XLSX is a file extension for an open XML spreadsheet file format used by Microsoft Excel.  In order to make the file work with this program, however, I had to save the file as a CSV.  CSV is a simple file format used to store tabular data, such as a spreadsheet or database.  CSV stands for "comma-separated values".  Saving the file to a CSV makes it easier to read the data and separate the columns because I can tell this program to separate the data by 'commas'.
 
 In order to save a file to CSV, do this in excel:
 
-TODO: add image of excel spreadsheet and save as option.
+![alt tag] ----
 
+![alt tag] ----
 
-Note: In order to ensure readablilty, empty cells are manually inserted with 'N/A'.  
+![alt tag] ----
 
-TODO: add printshot of csv in texteditor
+Note: 
+In order to ensure readablilty, empty cells are manually inserted with 'N/A'.  
+When I converted the spreadsheet to a CSV, I did not save the header information too.  I will add my own header via a printf function in display.c.
 
-TODO: printshot without the header
-Note that when I converted the spreadsheet to a CSV, I did not save the header information too.  I will add my own header via a printf function in display.c.
+In the end, I had to delete a lot of the bad data in my csv file.  This program will not strip out the extra commas in sentences and does not deal with really long text well.  I ended up having to change the csv file so it looks simple like this:
 
-In the end, I had to delete a lot of the bad data in my csv file.  This program will not script out the extra commas in sentences and does not deal with really long text well.  I ended up having to change the csv file so it looks simple like this:
-
-TODO: add image of new CSV
+![alt tag] ----
 
 
 TODO:feature to deal with clean up long text, and deal with commas and spaces in cell so I don't have to deal with it manually.
@@ -61,7 +61,7 @@ This program converts the csv to a dat file only for demostration.  Users can me
 
 When working with visual studio 2015, ensure all DAT, CSV files are in the project folders like this.  For this example, I created a project called foo because it is where I usually store all my testing code.
 
-TODO: add folder structure image
+![alt tag] ----
 
 ## API Reference
 
