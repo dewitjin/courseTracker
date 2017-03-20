@@ -14,6 +14,8 @@ TODO: In order for to develop this application in one weekend, I borrowed course
 
 TODO: Here are examples of insert, delete etc. that I learnt and I am borrowing from class.
 
+This program parses each line from the file and then separate data by tokenizing the line using fgets(). Look in convert.c for the example.
+
 ## Motivation
 
 
@@ -24,19 +26,28 @@ This project exists because I need something to replace my current method of kee
 In order to run this code, you need an integrated development environment like Visual Studio.  This program is created using Visual Studio 2015 and started with an empty Win32 Console Application.
 
 TODO: add an image to insert cmd arguments using visual studio
+Instead of typing in the data input file in all the time, we can do insert the data input name like this:
 
-Currently, I have all my courses in a spreadsheet saved as XLSX file.  XLSX is a file extension for an open XML spreadsheet file format used by Microsoft Excel.  In order to make the file work with this program, however, I had to save the file as a CSV.  CSV is a simple file format used to store tabular data, such as a spreadsheet or database.  CSV stands for "comma-separated values".  Saving the file to a CSV makes it easier to read the data and separate because I can tell this program to separate the data by 'commas'.
+Currently, I have all my courses in a spreadsheet saved as XLSX file.  XLSX is a file extension for an open XML spreadsheet file format used by Microsoft Excel.  In order to make the file work with this program, however, I had to save the file as a CSV.  CSV is a simple file format used to store tabular data, such as a spreadsheet or database.  CSV stands for "comma-separated values".  Saving the file to a CSV makes it easier to read the data and separate the columns because I can tell this program to separate the data by 'commas'.
 
-In order to save a file to CSV, do this:
+In order to save a file to CSV, do this in excel:
 
 TODO: add image of excel spreadsheet and save as option.
 
 
-Note: when you open up the CSV file in a normal text editor the text will look messed up.  In order to ensure readablilty, I have made sure that when there are data in all the cells (when it's empty I inserted N/A).  I will need to do a little testing to see how my program reads the data with the puntuations etc. but it should just read one column as one big string data.  Right now I am seeing quotations around columns with a long text in it.
+Note: In order to ensure readablilty, empty cells are manually inserted with 'N/A'.  
 
 TODO: add printshot of csv in texteditor
 
+TODO: printshot without the header
+Note that when I converted the spreadsheet to a CSV, I did not save the header information too.  I will add my own header via a printf function in display.c.
 
+In the end, I had to delete a lot of the bad data in my csv file.  This program will not script out the extra commas in sentences and does not deal with really long text well.  I ended up having to change the csv file so it looks simple like this:
+
+TODO: add image of new CSV
+
+
+TODO:feature to deal with clean up long text, and deal with commas and spaces in cell so I don't have to deal with it manually.
 
 ## API Reference
 
@@ -50,7 +61,7 @@ No test.
 
 The best way to reach me is via my email at dewi.tjin + @ + gmail.com.
 
-If you would like to contribute please fork the repo and I will review code.
+If you would like to contribute please fork the repo and I will review code.  I would like help/advice on how to add a feature to deal with cleaning up long text in CSV files, and deal with commas and spaces in cell so I don't have to deal with it manually.
 
 ## License
 
