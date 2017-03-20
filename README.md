@@ -32,6 +32,11 @@ In order to save a file to CSV, do this:
 TODO: add image of excel spreadsheet and save as option.
 
 
+Note: when you open up the CSV file in a normal text editor the text will look messed up.  In order to ensure readablilty, I have made sure that when there are data in all the cells (when it's empty I inserted N/A).  I will need to do a little testing to see how my program reads the data with the puntuations etc. but it should just read one column as one big string data.  Right now I am seeing quotations around columns with a long text in it.
+
+TODO: add printshot of csv in texteditor
+
+
 
 ## API Reference
 
