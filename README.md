@@ -57,6 +57,10 @@ Step 2: run display.c to display the data from a DAT file.
 
 This program converts the csv to a dat file only for demostration.  Users can merge the two files together and eliminate the code to convert to DAT, if desired.
 
+When working with visual studio 2015, ensure all DAT, CSV files are in the project folders like this.  For this example, I created a project called foo because it is where I usually store all my testing code.
+
+TODO: add folder structure image
+
 ## API Reference
 
 None.
