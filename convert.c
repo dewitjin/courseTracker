@@ -32,11 +32,11 @@
 typedef struct {
 	
 	char schoolName			[MAX_SCHOOL_NAME_LENTGH + 1];
-	int	 year;
+	int  year;
 	char courseName			[MAX_COURSE_NAME_LENGTH + 1];
 	char courseID			[MAX_COURSE_ID_LENGTH + 1];
-	char teacherFirstName	[MAX_FIRST_NAME_LENGTH + 1];
-	char teacherLastName	[MAX_LAST_NAME_LENGTH + 1];
+	char teacherFirstName		[MAX_FIRST_NAME_LENGTH + 1];
+	char teacherLastName		[MAX_LAST_NAME_LENGTH + 1];
 	char courseOutcome		[MAX_COURSE_OUTCOME_LENGTH + 1];
 	char extraInfo			[MAX_COURSE_EXTRA_INFO_LENGTH + 1];
 } Course;
