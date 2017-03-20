@@ -6,7 +6,9 @@ This project grabs data from a text file filled with data about courses I am tak
 
 ## Code Example
 
-Using C to create a list of anything requires basic knowledge about pointers and structures.  Unlike most programming languages, lists in C (linked list, stacks and quences) have to be created using pointers and structures.  So for example, this application creates a structure of courses to hold the data and in the structure I have inserted a pointer that points to the previous and next list node.  These pointers are what allows me to traverse through the list and displays the list in sorted order.  Lastly, the reason why I am creating a linked list instead of a standard array is because I don’t know how many list nodes I will need (how many courses I will take). By creating a linked list, the program can dynamically change the list size, which means in the future if I take 1 or 100 more courses, the program will be able to handle the data. 
+TODO: create a menu option to insert, delete old data and then update binary file or txt file ??
+
+TODO: Using C to create a list of anything requires basic knowledge about pointers and structures.  Unlike most programming languages, lists in C (linked list, stacks and quences) have to be created using pointers and structures.  So for example, this application creates a structure of courses to hold the data and in the structure I have inserted a pointer that points to the previous and next list node.  These pointers are what allows me to traverse through the list and displays the list in sorted order.  Lastly, the reason why I am creating a linked list instead of a standard array is because I don’t know how many list nodes I will need (how many courses I will take). By creating a linked list, the program can dynamically change the list size, which means in the future if I take 1 or 100 more courses, the program will be able to handle the data. 
 
 TODO: In order for to develop this application in one weekend, I borrowed course codes to insert node, delete node, and print list.  In class, I learnt a basic pattern to deal with how to insert/delete/print and the functions can be use in various way for any type of structure (courses, contacts, companies etc.)
 
@@ -23,7 +25,13 @@ In order to run this code, you need an integrated development environment like V
 
 TODO: add an image to insert cmd arguments using visual studio
 
-TODO: how to produce a csv file from excel
+Currently, I have all my courses in a spreadsheet saved as XLSX file.  XLSX is a file extension for an open XML spreadsheet file format used by Microsoft Excel.  In order to make the file work with this program, however, I had to save the file as a CSV.  CSV is a simple file format used to store tabular data, such as a spreadsheet or database.  CSV stands for "comma-separated values".  Saving the file to a CSV makes it easier to read the data and separate because I can tell this program to separate the data by 'commas'.
+
+In order to save a file to CSV, do this:
+
+TODO: add image of excel spreadsheet and save as option.
+
+
 
 ## API Reference
 
