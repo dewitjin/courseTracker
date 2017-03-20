@@ -49,6 +49,14 @@ TODO: add image of new CSV
 
 TODO:feature to deal with clean up long text, and deal with commas and spaces in cell so I don't have to deal with it manually.
 
+Program order:
+
+Step 1: run convert.c to convert a CSV file to a DAT file.
+
+Step 2: run display.c to display the data from a DAT file.
+
+This program converts the csv to a dat file only for demostration.  Users can merge the two files together and eliminate the code to convert to DAT, if desired.
+
 ## API Reference
 
 None.
