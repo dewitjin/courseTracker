@@ -39,10 +39,11 @@ This program uses cmd line arguments to get file input name.  In visual studio, 
 <br/>
 
 This is for convert.c:
-![alt tag](https://cloud.githubusercontent.com/assets/6993716/24091287/732a33d0-0d04-11e7-9672-2544b89ca0eb.PNG)
+![alt tag](https://cloud.githubusercontent.com/assets/6993716/25874659/5e702e86-34c8-11e7-9652-f800d8f07109.PNG)
 
 This is for display.c:
-![alt tag](https://cloud.githubusercontent.com/assets/6993716/25874659/5e702e86-34c8-11e7-9652-f800d8f07109.PNG)
+![alt tag](https://cloud.githubusercontent.com/assets/6993716/24091287/732a33d0-0d04-11e7-9672-2544b89ca0eb.PNG)
+
 
 Currently, I have all my courses in a spreadsheet saved as XLSX file.  XLSX is a file extension for an open XML spreadsheet file format used by Microsoft Excel.  In order to make the file work with this program, however, I had to save the file as a CSV.  CSV is a simple file format used to store tabular data, such as a spreadsheet or database.  CSV stands for "comma-separated values".  Saving the file to a CSV makes it easier to read the data and separate the columns because I can tell this program to separate the data by 'commas'.
 
