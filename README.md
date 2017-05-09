@@ -79,9 +79,9 @@ When working with visual studio 2015, ensure all DAT, CSV files are in the proje
 
 Currently, the program does not check if the user really wants to override the output file.  I have coded it so that the check is disabled.  It is good practice though to check with the user that the user knows the file will be overwritten.
 
-<br/>
 This code to check for this is in convert.c:
-![alt tag](https://cloud.githubusercontent.com/assets/6993716/25874664/62ca075e-34c8-11e7-9cf8-6eafd256492d.PNG)
+<br/>
+![alt tag](https://cloud.githubusercontent.com/assets/6993716/25875247/433c2112-34cb-11e7-96d6-554be2e021a9.PNG)
 
 <br/>
 The output message is this:
@@ -90,6 +90,7 @@ The output message is this:
 <br/>
 This is output after clicking on option 1. However, as of (May 9, 2017) the binary file is not being written out correctly to the output txt file.
 
+<br/>
 ![alt tag](https://cloud.githubusercontent.com/assets/6993716/25874671/6a09e0ca-34c8-11e7-9519-1e24d4e35828.PNG)
 
 Note: if you wanted to send this program to a client, you would create an empty folder and insert the executable with the data files like this:
@@ -100,17 +101,13 @@ If you are using Visual Studio 2015, the executable file would be in the parent 
 
 ![alt tag](https://cloud.githubusercontent.com/assets/6993716/25875112/ad6fd14c-34ca-11e7-9274-440d36e570fa.PNG)
 
-Note: originally, the executable is named with the same name as your project file (all my test projects are named foo, but you can rename the executable to something more meangingful
+Note: originally, the executable is named with the same name as your project file (all my test projects are named foo, but you can rename the executable to something more meangingful)
 
 In order for this executable to run properly, however, I had to edit code to this:
 
 ![alt tag](https://cloud.githubusercontent.com/assets/6993716/25875247/433c2112-34cb-11e7-96d6-554be2e021a9.PNG)
 
 TODO: the above fixed one error, but when I run convert.exe all it does right now is create a blank clients.dat - need to fix
-
-
-
-
 
 ## API Reference
 
