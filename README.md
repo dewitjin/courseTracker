@@ -86,12 +86,14 @@ This code to check for this is in convert.c:
 <br/>
 The output message is this:
 <br/>
+
 ![alt tag](https://cloud.githubusercontent.com/assets/6993716/25874667/665d75e0-34c8-11e7-8d7e-d733118d6e68.PNG)
 
 <br/>
 This is output after clicking on option 1. However, as of (May 9, 2017) the binary file is not being written out correctly to the output txt file.
 
 <br/>
+
 ![alt tag](https://cloud.githubusercontent.com/assets/6993716/25874671/6a09e0ca-34c8-11e7-9519-1e24d4e35828.PNG)
 
 Note: if you wanted to send this program to a client, you would create an empty folder and insert the executable with the data files like this:
@@ -106,7 +108,7 @@ Note: originally, the executable is named with the same name as your project fil
 
 In order for this executable to run properly, however, I had to edit code to this:
 
-![alt tag](https://cloud.githubusercontent.com/assets/6993716/25875247/433c2112-34cb-11e7-96d6-554be2e021a9.PNG)
+![alt tag](https://cloud.githubusercontent.com/assets/6993716/25875696/bc989728-34cd-11e7-9ddb-fbb38caf1cc3.PNG)
 
 TODO: the above fixed one error, but when I run convert.exe all it does right now is create a blank clients.dat - need to fix
 
