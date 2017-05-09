@@ -9,6 +9,10 @@ The program outputs this to the console like this, minus the display menu:
 
 ## Code Example
 
+Upon execution, menu is displayed:
+
+![alt tag](https://cloud.githubusercontent.com/assets/6993716/25874625/34d3cb3c-34c8-11e7-865d-29c08799746a.PNG)
+
 TODO: create a menu option to insert, delete old data and then update binary file or txt file ?? Note to self: may not need to use pointers for this part.
 
 TODO: Using C to create a list of anything requires basic knowledge about pointers and structures.  Unlike most programming languages, lists in C (linked list, stacks and quences) have to be created using pointers and structures.  So for example, this application creates a structure of courses to hold the data and in the structure I have inserted a pointer that points to the previous and next list node.  These pointers are what allows me to traverse through the list and displays the list in sorted order.  Lastly, the reason why I am creating a linked list instead of a standard array is because I don’t know how many list nodes I will need (how many courses I will take). By creating a linked list, the program can dynamically change the list size, which means in the future if I take 1 or 100 more courses, the program will be able to handle the data.  
@@ -32,8 +36,13 @@ This project exists because I need something to replace my current method of kee
 In order to run this code, you need an integrated development environment like Visual Studio.  This program is created using Visual Studio 2015 and started with an empty Win32 Console Application.
 
 This program uses cmd line arguments to get file input name.  In visual studio, you would input the file name like this:
+<br/>
 
+This is for convert.c:
 ![alt tag](https://cloud.githubusercontent.com/assets/6993716/24091287/732a33d0-0d04-11e7-9672-2544b89ca0eb.PNG)
+
+This is for display.c:
+![alt tag](https://cloud.githubusercontent.com/assets/6993716/25874659/5e702e86-34c8-11e7-9652-f800d8f07109.PNG)
 
 Currently, I have all my courses in a spreadsheet saved as XLSX file.  XLSX is a file extension for an open XML spreadsheet file format used by Microsoft Excel.  In order to make the file work with this program, however, I had to save the file as a CSV.  CSV is a simple file format used to store tabular data, such as a spreadsheet or database.  CSV stands for "comma-separated values".  Saving the file to a CSV makes it easier to read the data and separate the columns because I can tell this program to separate the data by 'commas'.
 
@@ -64,6 +73,43 @@ This program converts the csv to a dat file only for demostration.  Users can me
 When working with visual studio 2015, ensure all DAT, CSV files are in the project folders like this.  For this example, I created a project called foo because it is where I usually store all my testing code.
 
 ![alt tag](https://cloud.githubusercontent.com/assets/6993716/24091573/1a923ad6-0d06-11e7-9ef5-f5d8b11dbd0c.PNG)
+
+## Other Helpful Images'
+
+Currently, the program does not check if the user really wants to override the output file.  I have coded it so that the check is disabled.  It is good practice though to check with the user that the user knows the file will be overwritten.
+
+<br/>
+This code to check for this is in convert.c:
+![alt tag](https://cloud.githubusercontent.com/assets/6993716/25874664/62ca075e-34c8-11e7-9cf8-6eafd256492d.PNG)
+
+<br/>
+The output message is this:
+![alt tag](https://cloud.githubusercontent.com/assets/6993716/25874667/665d75e0-34c8-11e7-8d7e-d733118d6e68.PNG)
+
+<br/>
+This is output after clicking on option 1. However, as of (May 9, 2017) the binary file is not being written out correctly to the output txt file.
+
+![alt tag](https://cloud.githubusercontent.com/assets/6993716/25874671/6a09e0ca-34c8-11e7-9519-1e24d4e35828.PNG)
+
+Note: if you wanted to send this program to a client, you would create an empty folder and insert the executable with the data files like this:
+
+![alt tag](https://cloud.githubusercontent.com/assets/6993716/25875109/a9c60570-34ca-11e7-9453-d4ab94cd3332.PNG)
+
+If you are using Visual Studio 2015, the executable file would be in the parent debug folder like this:
+
+![alt tag](https://cloud.githubusercontent.com/assets/6993716/25875112/ad6fd14c-34ca-11e7-9274-440d36e570fa.PNG)
+
+Note: originally, the executable is named with the same name as your project file (all my test projects are named foo, but you can rename the executable to something more meangingful
+
+In order for this executable to run properly, however, I had to edit code to this:
+
+![alt tag](https://cloud.githubusercontent.com/assets/6993716/25875247/433c2112-34cb-11e7-96d6-554be2e021a9.PNG)
+
+TODO: the above fixed one error, but when I run convert.exe all it does right now is create a blank clients.dat - need to fix
+
+
+
+
 
 ## API Reference
 
