@@ -5,6 +5,12 @@
 This project grabs data from a text file filled with data about courses I am taking, stores the data in a list and displays a menu with option for sorting the data.
 
 The program outputs this to the console like this, minus the display menu:
+<br/>
+
+![alt tag](https://cloud.githubusercontent.com/assets/6993716/25879441/952f3bba-34e6-11e7-9931-14c42bab42ac.PNG)
+
+<br/>
+This was the old menu. I will keep the image here incase I refered to it somewhere else.
 ![alt tag](https://cloud.githubusercontent.com/assets/6993716/24091648/931e9134-0d06-11e7-9e4b-bbd3eff7e944.PNG)
 
 ## Code Example
@@ -133,6 +139,29 @@ Using the command prompt you would instruct the prompt to open the executable wi
 ![alt tag](https://cloud.githubusercontent.com/assets/6993716/25877904/9e7532b6-34db-11e7-9231-32e4c66f2971.PNG)
 
 TODO: As of May 9, 2017 I am getting the client.dat input to display the correct data on the console and txt file using Visual Studio, but the program is not writing to the text file using just the executable via the command prompt. - need to fix
+
+<br/>
+
+With the new menu (implemented on May 9, 2017), users will get a message like this:
+
+<br/>
+
+![alt tag](https://cloud.githubusercontent.com/assets/6993716/25879521/f34406ae-34e6-11e7-8c0b-a9d2290b1c04.PNG)
+
+<br/>
+
+Option 3 - new record added displays data on prompt like this:
+
+![alt tag](https://cloud.githubusercontent.com/assets/6993716/25879558/23d2e9a2-34e7-11e7-9eac-42da25af3f4a.PNG)
+
+<br/>
+
+Confirmation of new record inserted in text file.
+
+<br/>
+
+![alt tag](https://cloud.githubusercontent.com/assets/6993716/25879561/27c73932-34e7-11e7-8c5f-50e1dc9848ed.PNG)
+
 
 ## API Reference
 
