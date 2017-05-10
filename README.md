@@ -4,19 +4,17 @@
 
 This project grabs data from a text file filled with data about courses I am taking, stores the data in a list and displays a menu with option for sorting the data.
 
-The program outputs this to the console like this, minus the display menu:
 <br/>
 
-![alt tag](https://cloud.githubusercontent.com/assets/6993716/25879441/952f3bba-34e6-11e7-9931-14c42bab42ac.PNG)
-
-<br/>
-This was the old menu. I will keep the image here incase I refered to it somewhere else.
 ![alt tag](https://cloud.githubusercontent.com/assets/6993716/24091648/931e9134-0d06-11e7-9e4b-bbd3eff7e944.PNG)
 
 ## Code Example
 
-Upon execution, menu is displayed:
+Upon execution, menu is displayed:<br/>
 
+![alt tag](https://cloud.githubusercontent.com/assets/6993716/25879441/952f3bba-34e6-11e7-9931-14c42bab42ac.PNG)
+<br/>
+This is the old menu. I will keep this image here for reference.<br/>
 ![alt tag](https://cloud.githubusercontent.com/assets/6993716/25874625/34d3cb3c-34c8-11e7-865d-29c08799746a.PNG)
 
 TODO: create a menu option to insert, delete old data and then update binary file or txt file ?? Note to self: may not need to use pointers for this part.
