@@ -29,35 +29,45 @@
 #define MAX_FIRST_NAME_LENGTH			40
 #define MAX_LAST_NAME_LENGTH			40
 #define MAX_COURSE_OUTCOME_LENGTH		100
-#define MAX_COURSE_EXTRA_INFO_LENGTH		100
+#define MAX_COURSE_EXTRA_INFO_LENGTH	100
 
 #define DIVIDER "---------------------------------------------------------------------------------------------------------------------------------------------------------------------------"
 
 //prototypes:
 int enterChoice(void);
-void printToConsoleAndTextFile(FILE *fpInputFile);
+void printToConsoleAndTextFile(FILE *fpInputFile, FILE *fpOuput);
 
 void newRecord(FILE *fpInputFile);
 
 typedef struct {
 
-	char schoolName		[MAX_SCHOOL_NAME_LENTGH + 1];
-	int  year;
-	char courseName		[MAX_COURSE_NAME_LENGTH + 1];
-	char courseID		[MAX_COURSE_ID_LENGTH + 1];
-	char teacherFirstName	[MAX_FIRST_NAME_LENGTH + 1];
-	char teacherLastName	[MAX_LAST_NAME_LENGTH + 1];
-	char courseOutcome	[MAX_COURSE_OUTCOME_LENGTH + 1];
-	char extraInfo		[MAX_COURSE_EXTRA_INFO_LENGTH + 1];
+	char schoolName[MAX_SCHOOL_NAME_LENTGH + 1];//plus one ensures there is enough space for null
+	int	 year;
+	char courseName[MAX_COURSE_NAME_LENGTH + 1];
+	char courseID[MAX_COURSE_ID_LENGTH + 1];
+	char teacherFirstName[MAX_FIRST_NAME_LENGTH + 1];
+	char teacherLastName[MAX_LAST_NAME_LENGTH + 1];
+	char courseOutcome[MAX_COURSE_OUTCOME_LENGTH + 1];
+	char extraInfo[MAX_COURSE_EXTRA_INFO_LENGTH + 1];
+
 } Course;
 
 
 int main(int argc, char *argv[]) {		//argc number of arguments passed, argv array of strings passed
 
-	char *pDataOutTxt = argv[1];		//courses.dat - passed via cmdline
+	//uncomment when testing in VS
+	char *pDataOutTxt = argv[1];		//courses.dat - passed via cmdline, index zero is the project name
 
-	FILE *fpInputFile = fopen(pDataOutTxt, "rb+"); //make sure we have '+' or else we can't update etc
+	//char *pDataOutTxt = "courses.dat";//use this to create executable
+
+	FILE *fpInputFile = fopen(pDataOutTxt, "rb"); //make sure we have '+' or else we can't update etc - not sure if we need this since we are just reading the binary file once and not writing to it back
 	
+	//testing
+	FILE *fpOutput = fopen(OUTPUT_FILE, "w");//remember we are reading a binary file courses.dat but writing to newCourseList.txt
+	//end of testing
+
+
+
 	//check if the file to be read is called courses.dat
 	if (argc == 2) {
 		if (!(strcmp(argv[1], INPUT_FILE)) == 0) {
@@ -88,17 +98,21 @@ int main(int argc, char *argv[]) {		//argc number of arguments passed, argv arra
 			{
 
 			case 1:
-				printToConsoleAndTextFile(fpInputFile);
+				printToConsoleAndTextFile(fpInputFile, fpOutput);//testing
 				break;
+
 			case 2:
 				//updateRecord(fpInputFile); TODO not done
 				break;
+
 			case 3:
 				newRecord(fpInputFile);
 				break;
+
 			case 4:
 				//deleteRecord(fpInputFile); TODO not done
 				break;
+
 			default:
 				printf("Incorrect choice\n");
 				break;
@@ -108,7 +122,7 @@ int main(int argc, char *argv[]) {		//argc number of arguments passed, argv arra
 
 	//close files
 	fclose(fpInputFile);
-	fclose(OUTPUT_FILE); //file gets open when user prints out stuff but close it at the end of program for safety
+	fclose(fpOutput); //file gets open when user prints out stuff but close it at the end of program for safety
 
 	system("pause");
 	return 0;
@@ -207,9 +221,9 @@ void newRecord(FILE *fpInputFile) {
 }
 
 //print data to console and new text file for printing
-void printToConsoleAndTextFile(FILE *fpInputFile) {
+void printToConsoleAndTextFile(FILE *fpInputFile, FILE *fpOutput) {
 
-	FILE *fpOutput = fopen(OUTPUT_FILE, "w");
+	//FILE *fpOutput = fopen(OUTPUT_FILE, "w");//remember we are reading a binary file courses.dat but writing to newCourseList.txt
 
 	Course temp = { { 0 }, 0,{ 0 },{ 0 },{ 0 },{ 0 },{ 0 },{ 0 } };	//note {0} is an empty string
 
@@ -225,12 +239,16 @@ void printToConsoleAndTextFile(FILE *fpInputFile) {
 		printf("%s\n", DIVIDER);
 
 		//print out the header to text file
+		fprintf(fpOutput, "%s\n", "test");//write to new file
+
+
 		fprintf(fpOutput, "%-12s %s %-28s %-20s %-20s %-20s %-50s %-50s\n", 
 			"SCHOOL NAME", "YEAR", "COURSE NAME", "COURSE ID", 
 			"PROF FIRST NAME", "PROF LAST NAME", "COURSE OUTCOME", "EXTRA INFO"); //start printing header
+		
 		fprintf(fpOutput, "%s\n", DIVIDER);
 
-		rewind(fpInputFile);//set pointer to beginning of file
+		//rewind(fpInputFile);//set pointer to beginning of file
 		while (!feof(fpInputFile)) {
 
 			int bytesRead = fread(&temp, sizeof(Course), 1, fpInputFile);//reading from a binary file
@@ -247,7 +265,7 @@ void printToConsoleAndTextFile(FILE *fpInputFile) {
 					temp.courseOutcome,
 					temp.extraInfo);
 
-				//print to txt file
+				////print to txt file
 				fprintf(fpOutput,"%-12s %d %-28s %-20s %-20s %-20s %-50s %-50s\n",
 					temp.schoolName,
 					temp.year,
@@ -261,6 +279,8 @@ void printToConsoleAndTextFile(FILE *fpInputFile) {
 		}
 
 		printf("%s\n", DIVIDER);
+		fprintf(fpOutput, "%s\n", DIVIDER);
+
 	}//end of else
 }
 
