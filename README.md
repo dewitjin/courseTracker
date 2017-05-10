@@ -75,7 +75,8 @@ When working with visual studio 2015, ensure all DAT, CSV files are in the proje
 
 ![alt tag](https://cloud.githubusercontent.com/assets/6993716/24091573/1a923ad6-0d06-11e7-9ef5-f5d8b11dbd0c.PNG)
 
-## Other Helpful Images'
+
+## Other Helpful Images
 
 Currently, the program does not check if the user really wants to override the output file.  I have coded it so that the check is disabled.  It is good practice though to check with the user that the user knows the file will be overwritten.
 
@@ -90,11 +91,14 @@ The output message is this:
 ![alt tag](https://cloud.githubusercontent.com/assets/6993716/25874667/665d75e0-34c8-11e7-8d7e-d733118d6e68.PNG)
 
 <br/>
-This is output after clicking on option 1. However, as of (May 9, 2017) the binary file is not being written out correctly to the output txt file.
+
+![alt tag](https://cloud.githubusercontent.com/assets/6993716/25874671/6a09e0ca-34c8-11e7-9519-1e24d4e35828.PNG)
 
 <br/>
 
-![alt tag](https://cloud.githubusercontent.com/assets/6993716/25874671/6a09e0ca-34c8-11e7-9519-1e24d4e35828.PNG)
+display.c option 1 will give you the above image and also write to a text file, which will contain all the same data.
+
+![alt tag](https://cloud.githubusercontent.com/assets/6993716/25877906/a283c44e-34db-11e7-9258-d4367893179b.PNG)
 
 Note: if you wanted to send this program to a client, you would create an empty folder and insert the executable with the data files like this:
 
@@ -110,7 +114,25 @@ In order for this executable to run properly, however, I had to edit code to thi
 
 ![alt tag](https://cloud.githubusercontent.com/assets/6993716/25875696/bc989728-34cd-11e7-9ddb-fbb38caf1cc3.PNG)
 
-TODO: the above fixed one error, but when I run convert.exe all it does right now is create a blank clients.dat - need to fix
+<br/>
+
+Alternatively, instead of hardcoding the data input file name in VS, you can run the executable with the data in file name in the command prompt. <br/>
+
+This is the executable for display.c - I renamed it to courseTracker.exe for this image:
+
+<br/>
+
+![alt tag](https://cloud.githubusercontent.com/assets/6993716/25878043/a982ac00-34dc-11e7-83c9-e4a509acad37.PNG)
+
+<br/>
+
+Using the command prompt you would instruct the prompt to open the executable with the one argument - clients.dat
+
+<br/>
+
+![alt tag](https://cloud.githubusercontent.com/assets/6993716/25877904/9e7532b6-34db-11e7-9231-32e4c66f2971.PNG)
+
+TODO: As of May 9, 2017 I am getting the client.dat input to display the correct data on the console and txt file using Visual Studio, but the program is not writing to the text file using just the executable via the command prompt. - need to fix
 
 ## API Reference
 
