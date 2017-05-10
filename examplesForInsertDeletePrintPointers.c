@@ -22,7 +22,7 @@ void insertNode(ListNode **pStart, int value); //borrowed code
 ListNode *create();//return first node of ordered list
 ListNode *merge(ListNode *pStartFirstList, ListNode *pStartSecondList);
 
-int mainSecond() {
+int mainSecond() { //this program runs on it's own - in order to do so just pull this one file and change mainSecond to main()
 
 	ListNode *pStartFirstList = NULL;
 	ListNode *pStartSecondList = NULL;
