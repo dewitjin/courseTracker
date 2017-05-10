@@ -37,7 +37,7 @@
 int enterChoice(void);
 void printToConsoleAndTextFile(FILE *fpInputFile, FILE *fpOuput);
 
-void newRecord(FILE *fpInputFile);
+void newRecord(FILE *fpInputFile, FILE *fpOuput);
 
 typedef struct {
 
@@ -60,13 +60,11 @@ int main(int argc, char *argv[]) {		//argc number of arguments passed, argv arra
 
 	//char *pDataOutTxt = "courses.dat";//use this to create executable
 
-	FILE *fpInputFile = fopen(pDataOutTxt, "rb"); //make sure we have '+' or else we can't update etc - not sure if we need this since we are just reading the binary file once and not writing to it back
+	FILE *fpInputFile = fopen(pDataOutTxt, "rb"); //reading the clients.dat once
 	
-	//testing
-	FILE *fpOutput = fopen(OUTPUT_FILE, "w");//remember we are reading a binary file courses.dat but writing to newCourseList.txt
-	//end of testing
-
-
+	//I used w+ so that new record would be appended to text - changed the menu options to fit make this work
+	FILE *fpOutput = fopen(OUTPUT_FILE, "w+");//remember we are reading a binary file courses.dat but writing to newCourseList.txt - this will append content to bottom of list
+	
 
 	//check if the file to be read is called courses.dat
 	if (argc == 2) {
@@ -106,7 +104,7 @@ int main(int argc, char *argv[]) {		//argc number of arguments passed, argv arra
 				break;
 
 			case 3:
-				newRecord(fpInputFile);
+				newRecord(fpInputFile, fpOutput);
 				break;
 
 			case 4:
@@ -129,7 +127,7 @@ int main(int argc, char *argv[]) {		//argc number of arguments passed, argv arra
 }
 
 //add a new course
-void newRecord(FILE *fpInputFile) {
+void newRecord(FILE *fpInputFile, FILE *fpOutput) {
 
 	Course temp = { { 0 }, 0,{ 0 },{ 0 },{ 0 },{ 0 },{ 0 },{ 0 } };	//note {0} is an empty string
 
@@ -144,7 +142,7 @@ void newRecord(FILE *fpInputFile) {
 	fread(&temp, sizeof(Course), 1, fpInputFile);
 
 	if (strcmp(temp.courseID, courseID) == 0 ) { //read the courses inside the DAT file and see if the course already exists, compare with strcmp or else we aren't comparing actually string content just the address
-		printf("Course < %s > is already in < %s >.\n",
+		printf("Course < %s > is already in < %s >.\n",//todo this is not working - not checking clients.dat properly
 			temp.courseID, fpInputFile);
 	}
 	else {
@@ -200,15 +198,27 @@ void newRecord(FILE *fpInputFile) {
 		}
 		*(pExtraInfo - 1) = '\0';
 		
+		//old idea - delete if new idea works
 		// insert record in to DAT file courses.csv not the newCourseList.txt, txt is updated when you enter option 1
-		fwrite(&temp, sizeof(Course), 1, fpInputFile);
+		//fwrite(&temp, sizeof(Course), 1, fpInputFile);
+		//end of old idea block
 
 		//TODO add some kind of count check read DAT file make sure one more row is added ??
 
 		//print to console to check
-		printf("\nYou have entered this to < %s >\n", INPUT_FILE);
+		printf("\nYou have entered this to < %s >\n", OUTPUT_FILE);
 		printf("Warning - changes to txt file might not happened right away.\n");
 		printf("%-12s %d %-28s %-20s %-20s %-20s %-50s %-50s\n",
+			temp.schoolName,
+			temp.year,
+			temp.courseName,
+			temp.courseID,
+			temp.teacherFirstName,
+			temp.teacherLastName,
+			temp.courseOutcome,
+			temp.extraInfo);
+
+		fprintf(fpOutput, "%-12s %d %-28s %-20s %-20s %-20s %-50s %-50s\n",
 			temp.schoolName,
 			temp.year,
 			temp.courseName,
@@ -234,12 +244,12 @@ void printToConsoleAndTextFile(FILE *fpInputFile, FILE *fpOutput) {
 	else 
 	{													
 		//print header to console for debug
-		//start of code to read from binary file to console
-		printf("%-12s %s %-28s %-20s %-20s %-20s %-50s %-50s\n", "SCHOOL NAME", "YEAR", "COURSE NAME", "COURSE ID", "PROF FIRST NAME", "PROF LAST NAME", "COURSE OUTCOME", "EXTRA INFO"); //start printing header
-		printf("%s\n", DIVIDER);
 
-		//print out the header to text file
-		fprintf(fpOutput, "%s\n", "test");//write to new file
+		printf("\nConsole will only show content of original data from < %s >\nAny new record, or updates will not show on prompt - just inside < %s >\n\n\n", INPUT_FILE, OUTPUT_FILE);
+
+		//start of code to read from binary file to console
+		printf("\n%-12s %s %-28s %-20s %-20s %-20s %-50s %-50s\n", "SCHOOL NAME", "YEAR", "COURSE NAME", "COURSE ID", "PROF FIRST NAME", "PROF LAST NAME", "COURSE OUTCOME", "EXTRA INFO"); //start printing header
+		printf("%s\n", DIVIDER);
 
 
 		fprintf(fpOutput, "%-12s %s %-28s %-20s %-20s %-20s %-50s %-50s\n", 
@@ -248,13 +258,14 @@ void printToConsoleAndTextFile(FILE *fpInputFile, FILE *fpOutput) {
 		
 		fprintf(fpOutput, "%s\n", DIVIDER);
 
-		//rewind(fpInputFile);//set pointer to beginning of file
+		
 		while (!feof(fpInputFile)) {
 
 			int bytesRead = fread(&temp, sizeof(Course), 1, fpInputFile);//reading from a binary file
 			if (bytesRead > 0) {
 
 				//print to console
+				
 				printf("%-12s %d %-28s %-20s %-20s %-20s %-50s %-50s\n",
 					temp.schoolName,
 					temp.year,
@@ -279,9 +290,11 @@ void printToConsoleAndTextFile(FILE *fpInputFile, FILE *fpOutput) {
 		}
 
 		printf("%s\n", DIVIDER);
-		fprintf(fpOutput, "%s\n", DIVIDER);
+		
 
 	}//end of else
+
+	 rewind(fpInputFile);//set pointer to beginning of file - good practice?
 }
 
 
@@ -291,16 +304,15 @@ int enterChoice(void)
 	int menuChoice;
 
 	printf("\nEnter your choice\n"
-		"1 - store a formatted text file of courses called\n"
-		"    < %s > for printing\n"
-		"2 - update an course\n"
-		"3 - add a new course\n"
-		"4 - delete an course\n"
-		"5 - end program\n? ", OUTPUT_FILE);
+		"1 - Convert < %s > into < %s > for printing\n"
+		"2 - update a course\n"
+		"3 - add a new course to < %s >\n"
+		"4 - delete a course\n"
+		"5 - end program\n? ", INPUT_FILE, OUTPUT_FILE, OUTPUT_FILE);
 
 	scanf("%d", &menuChoice);
 	while (getchar() != '\n');
 	return menuChoice;
 }
 
-//TODO when insertering, updating, or deleting records, remember to update the DAT file or else the new text file will not be the most updated
+//updating, or deleting records left to implement
